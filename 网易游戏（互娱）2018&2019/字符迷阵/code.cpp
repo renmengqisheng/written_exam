@@ -33,42 +33,21 @@ int main()
             {
                 if(str[i][j] == word[0])
                 {
-                    bool same = true;
                     for(int k = 1; k < word_len; k++)
                     {
-                        if(j+k > n-1 || str[i][j+k] != word[k])
-                        {
-                            same = false;
-                            break;
-                        }
+                        if(j+k > n-1 || str[i][j+k] != word[k]) break;
+			if(k == word_len-1) count++;
                     }
-                    if(same) count++;
-                }
-                if(str[i][j] == word[0])
-                {
-                    bool same = true;
-                    for(int k = 1; k < word_len; k++)
+		    for(int k = 1; k < word_len; k++)
                     {
-                        if(i+k > m-1 || str[i+k][j] != word[k])
-                        {
-                            same = false;
-                            break;
-                        }
+                        if(i+k > m-1 || str[i+k][j] != word[k]) break;
+			if(k == word_len-1) count++;
                     }
-                    if(same) count++;
-                }
-                if(str[i][j] == word[0])
-                {
-                    bool same = true;
-                    for(int k = 1; k < word_len; k++)
+		    for(int k = 1; k < word_len; k++)
                     {
-                        if(i+k > m-1 || j+k > n-1 || str[i+k][j+k] != word[k])
-                        {
-                            same = false;
-                            break;
-                        }
+                        if(i+k > m-1 || j+k > n-1 || str[i+k][j+k] != word[k]) break;
+                        if(k == word_len-1) count++;
                     }
-                    if(same) count++;
                 }
             }
         }
